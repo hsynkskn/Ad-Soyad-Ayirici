@@ -36,9 +36,9 @@ uploaded_file = st.file_uploader("Dosyanızı yükleyin", type=["xlsx", "csv"])
 # Kayıt klasörleri
 folders = [
     os.getcwd(),
-    r"C:\Users\SLAYER\OneDrive\Desktop",
-    r"C:\Users\SLAYER\Downloads",
-    r"C:\Users\SLAYER\OneDrive\Documents"
+    r"~\Desktop",
+    r"~\Downloads",
+    r"~\Documents"
 ] 
 save_folder = st.selectbox("Düzenlenmiş dosyayı kaydedeceğiniz konumu seçin:", folders)
 
@@ -125,5 +125,6 @@ if uploaded_file and save_folder:
 
 else:
     st.warning("Lütfen bir dosya yükleyin, kayıt konumunu ve çıktı türünü seçin.")
+
 
 
