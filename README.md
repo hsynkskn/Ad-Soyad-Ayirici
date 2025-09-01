@@ -36,6 +36,7 @@ Kayıt imkanı: İşlenen dosya, kullanıcı tarafından seçilen konuma kaydedi
 İşlem süresi gösterimi: Kullanıcı, işlemin ne kadar sürede tamamlandığını ekranda görebilir.
 
 4. Teknik Altyapı
+   
 4.1. Kullanılan Teknolojiler
 
 Python: Temel programlama dili.
