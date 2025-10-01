@@ -1,6 +1,9 @@
+import streamlit as st
+import pandas as pd
+import time
 import os
-import io # Bellek içi (in-memory) dosya işlemleri için
-import json # JSON işlemleri için (CSV okuma döngüsü için gerekli olabilir)
+import io 
+import json
 
 # === Ad-Soyad Ayırıcı Fonksiyon ===
 def split_name(full_name):
@@ -131,6 +134,7 @@ if uploaded_file:
 
 else:
     st.warning("Lütfen bir dosya yükleyin ve çıktı türünü seçin.")
+
 
 
 
