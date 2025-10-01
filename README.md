@@ -1,100 +1,74 @@
-# Ad-Soyad-Ayirici
+🚀 Ad-Soyad Ayırıcı Uygulaması: Veri Düzenlemede Yeni Standart
 
-İhtiyaçtan Doğan Bir Program: Ad-Soyad Ayırıcı Uygulaması
+Link: https://ad-soyad-ayirici.streamlit.app/
 
 1. Giriş
+Günümüz veri yönetimi süreçlerinde, ad ve soyad bilgilerinin tek bir sütunda bulunması (örneğin müşteri listeleri veya kayıt formları), raporlama ve sistem entegrasyonlarında ciddi zorluklar yaratır. Bu problemi çözmek ve veri işleme verimliliğini artırmak amacıyla, basit, hızlı ve çok formatlı bir araç geliştirilmiştir: Ad-Soyad Ayırıcı Uygulaması.
 
-Günümüz dijital çağında veri işleme ve düzenleme ihtiyacı her geçen gün artmaktadır. Özellikle müşteri listeleri, öğrenci kayıtları, personel tabloları veya resmi belgelerde ad ve soyad bilgilerinin ayrı sütunlarda tutulması hem analiz süreçlerini kolaylaştırmakta hem de sistemsel entegrasyonlarda hataları azaltmaktadır.
-Bu noktada ortaya çıkan ihtiyaç, basit ama etkili bir çözümü doğurdu: Ad-Soyad Ayırıcı Programı.
+2. Problemler ve Neden Bu Uygulama?
+Kurumsal veri setlerindeki temel sorun, ad ve soyadların tek bir sütunda birleşik olmasıdır. Bu durum:
 
-2. Problemin Tanımı
+Raporlama Zorlukları: Ad veya soyad bazlı hızlı filtreleme ve analiz yapmayı imkansız hale getirir.
 
-Kurumsal veri setlerinin çoğunda ad ve soyad bilgileri tek bir sütunda bulunur. Bu durum, aşağıdaki sorunlara yol açar:
+Sistem Entegrasyonu: CRM, ERP veya E-ticaret sistemlerinin talep ettiği ayrı alanlara veri aktarımını karmaşıklaştırır.
 
-Raporlama zorlukları: Ad ve soyad bazlı analiz yapmak zorlaşır.
+Manuel Yük: Binlerce satırlık verinin elle düzenlenmesi ciddi zaman kaybına ve insan hatasına neden olur.
 
-CRM veya ERP entegrasyonu: Ad ve soyad için ayrı alanlar talep eden sistemlere veri aktarımı karmaşıklaşır.
+Bu uygulama, veriyi milisaniyeler içinde ayrıştırarak bu sorunları kökten çözer.
 
-Manuel düzenleme yükü: Binlerce satırdan oluşan dosyaların elle ayrıştırılması ciddi zaman kaybına neden olur.
+3. Çözüm ve Temel Özellikler
+Uygulama, Python ve Streamlit teknolojileriyle geliştirilmiş, web tabanlı bir veri düzenleme aracıdır.
 
-İşte bu problemleri çözmek için pratik, hızlı ve kullanıcı dostu bir araç geliştirilmiştir.
+✨ Yeni Vurgulanan Özellikler (Güncelleme)
+Özellik	Açıklama
+Çoklu Giriş/Çıkış Desteği	Artık sadece Excel ve CSV değil, JSON (.json) dosyalarını da okuyabilir ve çıktı olarak verebilir.
+Cloud Uyumlu Yapı	Streamlit Cloud gibi sunucusuz ortamlarda sorunsuz çalışır. Dosyayı yerel diske kaydetme yerine, düzenlenmiş veriyi doğrudan indirme butonu aracılığıyla kullanıcıya sunar.
+Türkçe Karakter Desteği	JSON ve CSV kaydetme işlemlerinde Türkçe karakterlerin (Ç, Ğ, Ö, Ş, İ, Ü) hatasız görünmesi sağlanmıştır.
 
-3. Çözüm: Ad-Soyad Ayırıcı Uygulaması
+E-Tablolar'a aktar
+🛠️ Mevcut Temel Özellikler
+Dosya Yükleme: Kullanıcı, cihazından .xlsx, .csv, veya .json dosyalarını yükleyebilir.
 
-Program, Python ve Streamlit teknolojileriyle geliştirilmiş, hem Excel (.xlsx) hem de CSV dosyaları üzerinde çalışan, kolay kullanımlı bir masaüstü web uygulamasıdır.
+Kolon Otomatik Algılama: Program, başlık adlarında (adsoyad, name surname, ad_soyad vb.) bulunan yaygın varyasyonları otomatik olarak tespit eder.
 
-3.1. Temel Özellikler
+Hızlı Ayrıştırma: Veri setinin boyutuna bağlı olarak işlem süresi ekranda gösterilir ve ayrıştırma işlemi saniyeler sürer.
 
-Dosya yükleme: Kullanıcı, cihazından bir Excel veya CSV dosyası yükleyebilir.
+Esnek Ayrıştırma Algoritması: Adı birden fazla kelimeden oluşan (örneğin "Ayşe Nur Yılmaz") kayıtlar için ilk kelimeler "Ad" olarak birleştirilir, son kelime daima "Soyad" olarak atanır.
 
-Kolon otomatik algılama: Program, başlık adlarında “Ad Soyad”, “Name Surname”, “adsoyad” gibi varyasyonları otomatik olarak algılar.
+4. Teknik Altyapı ve Algoritma
+⚙️ Kullanılan Teknolojiler
+Teknoloji	Amaç
+Python	Temel programlama dili.
+Pandas	Veri setlerini okuma, işleme, manipülasyon ve çıktı alma (Excel, CSV, JSON) için.
+Streamlit	Hızlı ve kullanıcı dostu arayüz oluşturma.
+io Kütüphanesi	Streamlit Cloud ortamında dosya işlemlerini bellek üzerinde (in-memory) gerçekleştirmek için (sunucuya kaydetme zorunluluğunu ortadan kaldırır).
 
-Hızlı ayrıştırma: Binlerce satır veri milisaniyeler içinde ad ve soyad olarak iki sütuna ayrılır.
+E-Tablolar'a aktar
+🧠 Ayrıştırma Algoritmasının İşleyişi
+Girdi: Yüklenen dosyanın uzantısı belirlenir ve Pandas ile DataFrame olarak okunur.
 
-Kayıt imkanı: İşlenen dosya, kullanıcı tarafından seçilen konuma kaydedilebilir.
+Sütun Tespiti: Tanımlı başlık listesi taranarak tek birleşik ad-soyad sütunu bulunur.
 
-İşlem süresi gösterimi: Kullanıcı, işlemin ne kadar sürede tamamlandığını ekranda görebilir.
+Ayrıştırma (Örnekler):
 
-4. Teknik Altyapı
-   
-4.1. Kullanılan Teknolojiler
+"Ali Yılmaz" → Ad: Ali, Soyad: Yılmaz
 
-Python: Temel programlama dili.
+"Ayşe Nur Kara" → Ad: Ayşe Nur, Soyad: Kara
 
-Pandas: Veri işleme ve düzenleme için.
+"Deniz" → Ad: Deniz, Soyad: (Boş)
 
-Streamlit: Basit ve hızlı bir kullanıcı arayüzü sağlamak için.
-
-4.2. Algoritmanın İşleyişi
-
-Dosya yüklenir.
-
-Kolon başlıkları taranır; ad-soyad içeren sütun otomatik tespit edilir.
-
-Veriler satır satır ayrıştırılır:
-
-Tek kelime: Ad alanına yazılır, soyad boş kalır.
-
-İki kelime: İlk kelime ad, ikinci kelime soyad olarak ayrılır.
-
-İkiden fazla kelime: İlk kısımlar ad olarak birleştirilir, son kelime soyad olur.
-
-Yeni tablo oluşturulur.
-
-İşlenmiş dosya kullanıcı tarafından seçilen konuma kaydedilir.
+Çıktı: Yeni 'Ad' ve 'Soyad' sütunları eklenmiş DataFrame, seçilen formatta (Excel, CSV veya JSON) bellekte oluşturulur ve kullanıcıya indirilmek üzere sunulur.
 
 5. Kullanım Senaryoları
+Kurumsal Veri Yönetimi: Personel, müşteri veya tedarikçi listelerinin temizlenmesi.
 
-Kurumsal veri düzenleme: Personel veya müşteri listelerinin ayrıştırılması.
+Eğitim Sektörü: Öğrenci kayıt sistemlerine toplu veri girişi öncesi verilerin standartlaştırılması.
 
-Eğitim sektörü: Öğrenci bilgilerini sisteme yükleme öncesi düzenleme.
+Pazarlama ve E-ticaret: Kullanıcı verilerinin CRM veya E-posta Pazarlama sistemlerine hızlı entegrasyonu.
 
-Araştırma ve analiz: Anket sonuçlarındaki ad-soyad verilerinin temizlenmesi.
+Araştırma: Anket ve form sonuçlarından elde edilen veri setlerinin analize hazırlanması.
 
-E-ticaret: Kullanıcı verilerinin CRM sistemlerine entegre edilmesi.
+6. Sonuç ve Projenin Katkısı
+Ad-Soyad Ayırıcı Uygulaması, basit bir ihtiyacı modern teknolojilerle çözerek, veri temizleme sürecini saniyelerle ifade edilen bir otomasyona dönüştürür. Hız, doğruluk ve güncel JSON formatı desteği sayesinde veri yönetimi süreçlerinize doğrudan katma değer sağlar.
 
-6. Kullanıcı Dostu Tasarım
-
-Proje, teknik bilgisi olmayan kullanıcıların da rahatça kullanabilmesi için minimalist bir arayüzle tasarlanmıştır:
-
-Dosya yükleme butonu
-
-Kayıt konumu seçici
-
-İşlem süresi göstergesi
-
-Başarılı işlem sonrası otomatik indirme bağlantısı
-
-7. Sonuç ve Katkılar
-
-Bu proje, basit bir ihtiyacın doğru analiz edilmesi ve doğru teknolojilerle çözülmesi sayesinde, veri düzenleme süreçlerinde büyük zaman tasarrufu sağlamaktadır.
-
-Hız: Manuel işlemlere göre yüzlerce kat daha hızlı.
-
-Doğruluk: İnsan hatasını ortadan kaldırır.
-
-Esneklik: Hem Excel hem CSV desteği sayesinde farklı senaryolara uyarlanabilir.
-
-8. Son Söz
-
-“İhtiyaçtan doğan yazılımlar”, sadece teknik bir çözüm değil, aynı zamanda gerçek hayat problemlerine yönelik pratik bir yardım aracıdır. Ad-Soyad Ayırıcı Programı, veri yönetimini kolaylaştıran, zaman kazandıran ve kullanıcı dostu yapısıyla tam da bu felsefeyi yansıtan bir projedir.
+"İhtiyaçtan doğan yazılımlar, iş yükünü azaltır, verimliliği artırır."
